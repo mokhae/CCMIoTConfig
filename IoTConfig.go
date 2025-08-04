@@ -1,4 +1,4 @@
-package IoTConfig
+package iotconfig
 
 type Comm_Mode int
 
