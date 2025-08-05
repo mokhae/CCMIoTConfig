@@ -1,5 +1,10 @@
 package iotconfig
 
+import (
+	"encoding/json"
+	"os"
+)
+
 type Comm_Mode int
 
 const (
@@ -190,4 +195,20 @@ type MB_CHANNEL struct {
 	NUM_POINT      int        `json:"NUM_POINT"`
 	MBSERVER_START int        `json:"MBSERVER_START"`
 	ENABLED        bool       `json:"ENABLED"`
+}
+
+func SaveConfigFile() {
+
+}
+
+func LoadJSONFile[T any](filePath string) ([]T, error) {
+	data, err := os.ReadFile(filePath)
+	if err != nil {
+		return nil, err
+	}
+	var result []T
+	if err := json.Unmarshal(data, &result); err != nil {
+		return nil, err
+	}
+	return result, nil
 }
