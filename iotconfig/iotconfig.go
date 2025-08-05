@@ -208,3 +208,12 @@ func LoadJSONFile[T any](filePath string) ([]T, error) {
 	}
 	return result, nil
 }
+
+func SaveJsonFile[T any](filename string, data []T) error {
+
+	bData, err := json.MarshalIndent(data, "", "\t")
+	if err != nil {
+		return err
+	}
+	return os.WriteFile(filename, bData, 0644)
+}
