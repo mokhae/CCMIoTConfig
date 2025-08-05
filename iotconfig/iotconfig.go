@@ -197,10 +197,6 @@ type MB_CHANNEL struct {
 	ENABLED        bool       `json:"ENABLED"`
 }
 
-func SaveConfigFile() {
-
-}
-
 func LoadJSONFile[T any](filePath string) ([]T, error) {
 	data, err := os.ReadFile(filePath)
 	if err != nil {
