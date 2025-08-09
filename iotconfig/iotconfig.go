@@ -24,30 +24,34 @@ func (s Comm_Mode) String() string {
 }
 
 type MC3E_CONFIG struct {
-	DEVICES []MC3E_DEVICE `json:"DEVICES"`
+	DEVICES  []MC3E_DEVICE `json:"DEVICES"`
+	USE_COMM bool          `json:"USE_COMM"`
 }
 
 type MODBUS_CONFIG struct {
-	DEVICES []MODBUS_DEVICE `json:"DEVICES"`
+	DEVICES  []MODBUS_DEVICE `json:"DEVICES"`
+	USE_COMM bool            `json:"USE_COMM"`
 }
 
 type MODBUS_DEVICE struct {
-	DEVICE_ID string         `json:"DEVICE_ID"`
-	COMM_MODE Comm_Mode      `json:"COMM_MODE"`
-	ETHERNET  ETH_ST         `json:"ETHERNET"`
-	SERIAL    SERIAL_ST      `json:"SERIAL"`
-	TIMEOUT   TIMEOUT_ST     `json:"TIMEOUT"`
-	CHANNELS  []MC3E_CHANNEL `json:"CHANNELS"`
-	ENABLED   bool           `json:"ENABLED"`
+	DEVICE_ID  string         `json:"DEVICE_ID"`
+	COMM_MODE  Comm_Mode      `json:"COMM_MODE"`
+	ETHERNET   ETH_ST         `json:"ETHERNET"`
+	SERIAL     SERIAL_ST      `json:"SERIAL"`
+	TIMEOUT    TIMEOUT_ST     `json:"TIMEOUT"`
+	CHANNELS   []MC3E_CHANNEL `json:"CHANNELS"`
+	ENABLED    bool           `json:"ENABLED"`
+	USE_DEVICE bool           `json:"USE_DEVICE"`
 }
 
 type MC3E_DEVICE struct {
-	DEVICE_ID string       `json:"DEVICE_ID"`
-	COMM_MODE Comm_Mode    `json:"COMM_MODE"`
-	ETHERNET  ETH_ST       `json:"ETHERNET"`
-	TIMEOUT   TIMEOUT_ST   `json:"TIMEOUT"`
-	CHANNELS  []MB_CHANNEL `json:"CHANNELS"`
-	ENABLED   bool         `json:"ENABLED"`
+	DEVICE_ID  string       `json:"DEVICE_ID"`
+	COMM_MODE  Comm_Mode    `json:"COMM_MODE"`
+	ETHERNET   ETH_ST       `json:"ETHERNET"`
+	TIMEOUT    TIMEOUT_ST   `json:"TIMEOUT"`
+	CHANNELS   []MB_CHANNEL `json:"CHANNELS"`
+	ENABLED    bool         `json:"ENABLED"`
+	USE_DEVICE bool         `json:"USE_DEVICE"`
 }
 
 type ETH_ST struct {
