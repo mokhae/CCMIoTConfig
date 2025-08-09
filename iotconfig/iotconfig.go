@@ -224,10 +224,10 @@ func SaveJsonFile[T any](filename string, data []T) error {
 
 func HaveChannels[T any](v T) bool {
 	switch xs := any(v).(type) {
-	case []MC3E_DEVICE:
-		return len(xs) > 0
-	case []MODBUS_DEVICE:
-		return len(xs) > 0
+	case MC3E_DEVICE:
+		return len(xs.CHANNELS) > 0
+	case MODBUS_DEVICE:
+		return len(xs.CHANNELS) > 0
 	default:
 		return false
 	}
