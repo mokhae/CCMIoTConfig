@@ -221,3 +221,14 @@ func SaveJsonFile[T any](filename string, data []T) error {
 	}
 	return os.WriteFile(filename, bData, 0644)
 }
+
+func HaveChannels[T any](v T) bool {
+	switch xs := any(v).(type) {
+	case []MC3E_DEVICE:
+		return len(xs) > 0
+	case []MODBUS_DEVICE:
+		return len(xs) > 0
+	default:
+		return false
+	}
+}
