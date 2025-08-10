@@ -26,7 +26,7 @@ func (s Comm_Mode) String() string {
 type Modbus_Serial_Type int
 
 const (
-	MB_SERIAL_RTU_ Modbus_Serial_Type = iota
+	MB_SERIAL_RTU Modbus_Serial_Type = iota
 	MB_SERIAL_ASCII
 	MB_SERIAL_RTU_OVER_TCP
 	MB_SERIAL_ASCII_OVER_TCP
@@ -34,7 +34,7 @@ const (
 
 func (s Modbus_Serial_Type) String() string {
 	switch s {
-	case MB_SERIAL_RTU_:
+	case MB_SERIAL_RTU:
 		return "MODBUS RTU"
 	case MB_SERIAL_ASCII:
 		return "MODBUS ASCII"
