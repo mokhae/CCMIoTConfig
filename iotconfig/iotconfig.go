@@ -23,6 +23,30 @@ func (s Comm_Mode) String() string {
 	}
 }
 
+type Modbus_Serial_Type int
+
+const (
+	MB_SERIAL_RTU_ Modbus_Serial_Type = iota
+	MB_SERIAL_ASCII
+	MB_SERIAL_RTU_OVER_TCP
+	MB_SERIAL_ASCII_OVER_TCP
+)
+
+func (s Modbus_Serial_Type) String() string {
+	switch s {
+	case MB_SERIAL_RTU_:
+		return "MODBUS RTU"
+	case MB_SERIAL_ASCII:
+		return "MODBUS ASCII"
+	case MB_SERIAL_RTU_OVER_TCP:
+		return "MODBUS RTU OVER TCP"
+	case MB_SERIAL_ASCII_OVER_TCP:
+		return "MODBUS ASCII OVER TCP"
+	default:
+		return "Unknown"
+	}
+}
+
 type MC3E_CONFIG struct {
 	DEVICES  []MC3E_DEVICE `json:"DEVICES"`
 	USE_COMM bool          `json:"USE_COMM"`
@@ -34,14 +58,15 @@ type MODBUS_CONFIG struct {
 }
 
 type MODBUS_DEVICE struct {
-	DEVICE_ID  string         `json:"DEVICE_ID"`
-	COMM_MODE  Comm_Mode      `json:"COMM_MODE"`
-	ETHERNET   ETH_ST         `json:"ETHERNET"`
-	SERIAL     SERIAL_ST      `json:"SERIAL"`
-	TIMEOUT    TIMEOUT_ST     `json:"TIMEOUT"`
-	CHANNELS   []MC3E_CHANNEL `json:"CHANNELS"`
-	ENABLED    bool           `json:"ENABLED"`
-	USE_DEVICE bool           `json:"USE_DEVICE"`
+	DEVICE_ID          string             `json:"DEVICE_ID"`
+	COMM_MODE          Comm_Mode          `json:"COMM_MODE"`
+	MODBUS_SERIAL_TYPE Modbus_Serial_Type `json:"MODBUS_TYPE"`
+	ETHERNET           ETH_ST             `json:"ETHERNET"`
+	SERIAL             SERIAL_ST          `json:"SERIAL"`
+	TIMEOUT            TIMEOUT_ST         `json:"TIMEOUT"`
+	CHANNELS           []MC3E_CHANNEL     `json:"CHANNELS"`
+	ENABLED            bool               `json:"ENABLED"`
+	USE_DEVICE         bool               `json:"USE_DEVICE"`
 }
 
 type MC3E_DEVICE struct {
