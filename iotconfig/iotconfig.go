@@ -64,19 +64,19 @@ type MODBUS_DEVICE struct {
 	ETHERNET           ETH_ST             `json:"ETHERNET"`
 	SERIAL             SERIAL_ST          `json:"SERIAL"`
 	TIMEOUT            TIMEOUT_ST         `json:"TIMEOUT"`
-	CHANNELS           []MC3E_CHANNEL     `json:"CHANNELS"`
+	CHANNELS           []MB_CHANNEL       `json:"CHANNELS"`
 	ENABLED            bool               `json:"ENABLED"`
 	USE_DEVICE         bool               `json:"USE_DEVICE"`
 }
 
 type MC3E_DEVICE struct {
-	DEVICE_ID  string       `json:"DEVICE_ID"`
-	COMM_MODE  Comm_Mode    `json:"COMM_MODE"`
-	ETHERNET   ETH_ST       `json:"ETHERNET"`
-	TIMEOUT    TIMEOUT_ST   `json:"TIMEOUT"`
-	CHANNELS   []MB_CHANNEL `json:"CHANNELS"`
-	ENABLED    bool         `json:"ENABLED"`
-	USE_DEVICE bool         `json:"USE_DEVICE"`
+	DEVICE_ID  string         `json:"DEVICE_ID"`
+	COMM_MODE  Comm_Mode      `json:"COMM_MODE"`
+	ETHERNET   ETH_ST         `json:"ETHERNET"`
+	TIMEOUT    TIMEOUT_ST     `json:"TIMEOUT"`
+	CHANNELS   []MC3E_CHANNEL `json:"CHANNELS"`
+	ENABLED    bool           `json:"ENABLED"`
+	USE_DEVICE bool           `json:"USE_DEVICE"`
 }
 
 type ETH_ST struct {
@@ -219,6 +219,7 @@ type MC3E_CHANNEL struct {
 }
 
 type MB_CHANNEL struct {
+	SLAVE_ID       byte       `json:"SLAVE_ID"`
 	COMMAND        MB_COMMAND `json:"COMMAND"`
 	OFFSET         int        `json:"OFFSET"`
 	NUM_POINT      int        `json:"NUM_POINT"`
