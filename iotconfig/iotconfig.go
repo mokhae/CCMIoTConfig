@@ -222,8 +222,8 @@ const (
 type MC3E_CHANNEL struct {
 	COMMAND        MC3E_COMMAND   `json:"COMMAND"`
 	DEVICE_CODE    MC_DEVICE_CODE `json:"DEVICE_CODE"`
-	OFFSET         int            `json:"OFFSET"`
-	NUM_POINT      int            `json:"NUM_POINT"`
+	OFFSET         int64          `json:"OFFSET"`
+	NUM_POINT      int64          `json:"NUM_POINT"`
 	MBSERVER_START int            `json:"MBSERVER_START"`
 	ENABLED        bool           `json:"ENABLED"`
 }
