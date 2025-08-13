@@ -219,22 +219,44 @@ const (
 	MC_DEVICE_R = "R"
 )
 
+type MB_SERVER_REGISTRY int
+
+const (
+	MB_SERVER_HOLDINGREGISTRY MB_SERVER_REGISTRY = iota
+	MB_SERVER_INPUTREGISTRY
+	MB_SERVER_COIL
+)
+
+func (s MB_SERVER_REGISTRY) String() string {
+	switch s {
+	case MB_SERVER_HOLDINGREGISTRY:
+		return "HOLDING REGISTRY"
+	case MB_SERVER_INPUTREGISTRY:
+		return "INPUT REGISTRY"
+	case MB_SERVER_COIL:
+		return "COIL"
+	}
+	return "Unknown"
+}
+
 type MC3E_CHANNEL struct {
-	COMMAND        MC3E_COMMAND   `json:"COMMAND"`
-	DEVICE_CODE    MC_DEVICE_CODE `json:"DEVICE_CODE"`
-	OFFSET         int64          `json:"OFFSET"`
-	NUM_POINT      int64          `json:"NUM_POINT"`
-	MBSERVER_START int            `json:"MBSERVER_START"`
-	ENABLED        bool           `json:"ENABLED"`
+	COMMAND         MC3E_COMMAND       `json:"COMMAND"`
+	DEVICE_CODE     MC_DEVICE_CODE     `json:"DEVICE_CODE"`
+	OFFSET          int64              `json:"OFFSET"`
+	NUM_POINT       int64              `json:"NUM_POINT"`
+	MBSERVER_START  int                `json:"MBSERVER_START"`
+	MBSERVER_MEMORY MB_SERVER_REGISTRY `json:"MBSERVER_MEMORY"`
+	ENABLED         bool               `json:"ENABLED"`
 }
 
 type MB_CHANNEL struct {
-	SLAVE_ID       byte       `json:"SLAVE_ID"`
-	COMMAND        MB_COMMAND `json:"COMMAND"`
-	OFFSET         int        `json:"OFFSET"`
-	NUM_POINT      int        `json:"NUM_POINT"`
-	MBSERVER_START int        `json:"MBSERVER_START"`
-	ENABLED        bool       `json:"ENABLED"`
+	SLAVE_ID        byte               `json:"SLAVE_ID"`
+	COMMAND         MB_COMMAND         `json:"COMMAND"`
+	OFFSET          int                `json:"OFFSET"`
+	NUM_POINT       int                `json:"NUM_POINT"`
+	MBSERVER_START  int                `json:"MBSERVER_START"`
+	MBSERVER_MEMORY MB_SERVER_REGISTRY `json:"MBSERVER_MEMORY"`
+	ENABLED         bool               `json:"ENABLED"`
 }
 
 func LoadJSONFile[T any](filePath string) ([]T, error) {
