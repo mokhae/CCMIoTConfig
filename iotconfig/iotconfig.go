@@ -23,6 +23,24 @@ func (s Comm_Mode) String() string {
 	}
 }
 
+type Slave_Mode int
+
+const (
+	USE_MASTER Slave_Mode = iota
+	USE_SLAVE
+)
+
+func (s Slave_Mode) String() string {
+	switch s {
+	case USE_MASTER:
+		return "Use_Master"
+	case USE_SLAVE:
+		return "Use_Slave"
+	default:
+		return "Unknown"
+	}
+}
+
 type Modbus_Serial_Type int
 
 const (
