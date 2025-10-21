@@ -78,6 +78,7 @@ type MODBUS_CONFIG struct {
 type MODBUS_DEVICE struct {
 	DEVICE_ID          string             `json:"DEVICE_ID"`
 	COMM_MODE          Comm_Mode          `json:"COMM_MODE"`
+	USE_SLAVE          Slave_Mode         `json:"USE_SLAVE"`
 	MODBUS_SERIAL_TYPE Modbus_Serial_Type `json:"MODBUS_TYPE"`
 	ETHERNET           ETH_ST             `json:"ETHERNET"`
 	SERIAL             SERIAL_ST          `json:"SERIAL"`
