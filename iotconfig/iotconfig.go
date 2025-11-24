@@ -256,6 +256,7 @@ type MB_CHANNEL struct {
 	NUM_POINT         int                `json:"NUM_POINT"`
 	MBSERVER_START    int                `json:"MBSERVER_START"`
 	MBSERVER_REGISTRY MB_SERVER_REGISTRY `json:"MBSERVER_REGISTRY"`
+	ISCONNECT         bool               `json:"ISCONNECT"`
 	ENABLED           bool               `json:"ENABLED"`
 }
 
