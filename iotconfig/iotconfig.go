@@ -23,6 +23,24 @@ func (s Comm_Mode) String() string {
 	}
 }
 
+type Slave_Mode int
+
+const (
+	USE_MASTER Slave_Mode = iota
+	USE_SLAVE
+)
+
+func (s Slave_Mode) String() string {
+	switch s {
+	case USE_MASTER:
+		return "Use_Master"
+	case USE_SLAVE:
+		return "Use_Slave"
+	default:
+		return "Unknown"
+	}
+}
+
 type Modbus_Serial_Type int
 
 const (
@@ -60,6 +78,8 @@ type MODBUS_CONFIG struct {
 type MODBUS_DEVICE struct {
 	DEVICE_ID          string             `json:"DEVICE_ID"`
 	COMM_MODE          Comm_Mode          `json:"COMM_MODE"`
+	USE_SLAVE          Slave_Mode         `json:"USE_SLAVE"`
+	SLAVE_ID           byte               `json:"SLAVE_ID"`
 	MODBUS_SERIAL_TYPE Modbus_Serial_Type `json:"MODBUS_TYPE"`
 	ETHERNET           ETH_ST             `json:"ETHERNET"`
 	SERIAL             SERIAL_ST          `json:"SERIAL"`
