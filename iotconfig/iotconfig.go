@@ -90,22 +90,22 @@ type MODBUS_DEVICE struct {
 }
 
 type MC3E_DEVICE struct {
-	DEVICE_ID  string         `json:"DEVICE_ID"`
-	COMM_MODE  Comm_Mode      `json:"COMM_MODE"`
-	ETHERNET   ETH_ST         `json:"ETHERNET"`
-	TIMEOUT    TIMEOUT_ST     `json:"TIMEOUT"`
-	CHANNELS   []MC3E_CHANNEL `json:"CHANNELS"`
-	ENABLED    bool           `json:"ENABLED"`
-	USE_DEVICE bool           `json:"USE_DEVICE"`
+	DEVICE_ID   string         `json:"DEVICE_ID"`
+	COMM_MODE   Comm_Mode      `json:"COMM_MODE"`
+	ETHERNET    ETH_ST         `json:"ETHERNET"`
+	TIMEOUT     TIMEOUT_ST     `json:"TIMEOUT"`
+	STATION_NUM string         `json:"STATION_NUM"`
+	CHANNELS    []MC3E_CHANNEL `json:"CHANNELS"`
+	ENABLED     bool           `json:"ENABLED"`
+	USE_DEVICE  bool           `json:"USE_DEVICE"`
 }
 
 type ETH_ST struct {
-	IP          string `json:"IP"`
-	PORT        int    `json:"PORT"`
-	ETH_DEVICE  string `json:"ETH_DEVICE"`
-	Local_IP    string `json:"LOCAL_IP"`
-	Local_Port  int    `json:"LOCAL_PORT"`
-	Station_Num string `json:"STATION_NUM"`
+	IP         string `json:"IP"`
+	PORT       int    `json:"PORT"`
+	ETH_DEVICE string `json:"ETH_DEVICE"`
+	Local_IP   string `json:"LOCAL_IP"`
+	Local_Port int    `json:"LOCAL_PORT"`
 }
 
 type SERIAL_ST struct {
