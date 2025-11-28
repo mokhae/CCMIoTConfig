@@ -100,10 +100,12 @@ type MC3E_DEVICE struct {
 }
 
 type ETH_ST struct {
-	IP         string `json:"IP"`
-	PORT       int    `json:"PORT"`
-	ETH_DEVICE string `json:"ETH_DEVICE"`
-	Local_IP   string `json:"LOCAL_IP"`
+	IP          string `json:"IP"`
+	PORT        int    `json:"PORT"`
+	ETH_DEVICE  string `json:"ETH_DEVICE"`
+	Local_IP    string `json:"LOCAL_IP"`
+	Local_Port  int    `json:"LOCAL_PORT"`
+	Station_Num string `json:"STATION_NUM"`
 }
 
 type SERIAL_ST struct {
